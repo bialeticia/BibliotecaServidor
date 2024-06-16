@@ -36,6 +36,7 @@ class ClienteHandler implements Runnable {
                     	out.println(Servidor.alugarLivro(parts[1]));
                         break;
                     case "DEVOLVER":
+                    	out.println(Servidor.devolverLivro(parts[1]));
                         break;
                     default:
                         out.println("Comando não reconhecido");

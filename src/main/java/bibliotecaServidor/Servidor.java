@@ -10,11 +10,12 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 public class Servidor {
 	private static final int PORT = 1234;
 	private static List<Livro> livros;
+	private static ServerSocket serverSocket;
 	
 	public static void main(String[] args) {
 		 try {
 	            livros = carregarLivros();
-	            ServerSocket serverSocket = new ServerSocket(PORT);
+	            serverSocket = new ServerSocket(PORT);
 	            System.out.println("Servidor iniciado na porta " + PORT);
 
 	            while (true) {
@@ -68,5 +69,20 @@ public class Servidor {
 			 }
 		 }
 		 return "Livro não disponível para aluguel.";
+	 }
+	 
+	 public static synchronized String devolverLivro(String titulo) {
+		 for (Livro livro : livros) {
+			 if (livro.getTitulo().equalsIgnoreCase(titulo)) {
+				 livro.setExemplares(livro.getExemplares() + 1);
+				 try {
+					 salvarLivros();
+				 } catch (IOException e) {
+					 return "Erro ao salvar a devolução do livro.";
+				 }
+				 return "Livro devolvido com sucesso!";
+			 }
+		 }
+		 return "Livro não encontrado.";
 	 }
 }
