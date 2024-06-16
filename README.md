@@ -30,13 +30,13 @@ Este projeto implementa um servidor de biblioteca utilizando sockets em Java. O 
 ### Comandos Disponíveis
 
 - LISTAR: Lista todos os livros disponíveis na biblioteca.
-- Sintaxe: LISTAR
+  Sintaxe: LISTAR
   
 - CADASTRAR: Cadastra um novo livro na biblioteca.
-- Sintaxe: CADASTRAR <título>,<autor>,<gênero>,<exemplares>
+  Sintaxe: CADASTRAR <título>,<autor>,<gênero>,<exemplares>
 
 - ALUGAR: Aluga um exemplar de um livro existente.
-- Sintaxe: ALUGAR <título>
+  Sintaxe: ALUGAR <título>
 
 - DEVOLVER: Devolve um exemplar de um livro alugado.
-- Sintaxe: DEVOLVER <título>
+  Sintaxe: DEVOLVER <título>
