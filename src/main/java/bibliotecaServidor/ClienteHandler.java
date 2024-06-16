@@ -22,6 +22,7 @@ class ClienteHandler implements Runnable {
 
                 switch (command) {
                     case "LISTAR":
+                    	out.println(Servidor.listarLivros());
                         break;
                     case "CADASTRAR":
                         break;
