@@ -44,5 +44,15 @@ public class Servidor {
 		 mapper.writeValue(new File("src/main/resources/livros.json"), biblioteca);
 	 }
 	 
-	 
+	 public static synchronized String cadastrarLivro(String titulo, String autor, String genero, int exemplares) {
+		 Livro novoLivro = new Livro(titulo, autor, genero, exemplares);
+		 livros.add(novoLivro);
+		 try {
+			 salvarLivros();
+		 } catch (IOException e) {
+			 return "Erro ao salvar o livro.";
+		 }
+		 return "Livro cadastrado com sucesso!";
+	 }
+
 }

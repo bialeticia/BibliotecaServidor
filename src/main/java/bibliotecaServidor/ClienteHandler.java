@@ -25,6 +25,12 @@ class ClienteHandler implements Runnable {
                     	out.println(Servidor.listarLivros());
                         break;
                     case "CADASTRAR":
+                    	String[] addParts = parts[1].split(",");
+                        String addTitulo = addParts[0];
+                        String addAutor = addParts[1];
+                        String addGenero = addParts[2];
+                        int addExemplares = Integer.parseInt(addParts[3]);
+                        out.println(Servidor.cadastrarLivro(addTitulo, addAutor, addGenero, addExemplares));
                         break;
                     case "ALUGAR":
                         break;
