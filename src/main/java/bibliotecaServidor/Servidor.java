@@ -55,4 +55,18 @@ public class Servidor {
 		 return "Livro cadastrado com sucesso!";
 	 }
 
+	 public static synchronized String alugarLivro(String titulo) {
+		 for (Livro livro : livros) {
+			 if (livro.getTitulo().equalsIgnoreCase(titulo) && livro.getExemplares() > 0) {
+				 livro.setExemplares(livro.getExemplares() - 1);
+				 try {
+					 salvarLivros();
+				 } catch (IOException e) {
+					 return "Erro ao salvar o aluguel do livro.";
+				 }
+				 return "Livro alugado com sucesso!";
+			 }
+		 }
+		 return "Livro não disponível para aluguel.";
+	 }
 }

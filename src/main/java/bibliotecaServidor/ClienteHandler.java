@@ -33,6 +33,7 @@ class ClienteHandler implements Runnable {
                         out.println(Servidor.cadastrarLivro(addTitulo, addAutor, addGenero, addExemplares));
                         break;
                     case "ALUGAR":
+                    	out.println(Servidor.alugarLivro(parts[1]));
                         break;
                     case "DEVOLVER":
                         break;
