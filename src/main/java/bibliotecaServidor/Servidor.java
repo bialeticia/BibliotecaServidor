@@ -85,4 +85,19 @@ public class Servidor {
 		 }
 		 return "Livro não encontrado.";
 	 }
+	 
+	 public static synchronized String exibirOpcoes() {
+		 return """
+		 		  - Digite LISTAR - para listar os livros
+		 		  - Digite CADASTRAR <título>,<autor>,<gênero>,<exemplares> - para cadastrar um novo livro
+		 				Exemplo:
+		 				CADASTRAR O Senhor dos Anéis,J.R.R. Tolkien,Fantasia,5
+		 		  - Digite ALUGAR <título> - para alugar um livro
+		 				Exemplo:
+		 				ALUGAR Meditações	
+		 		  - Digite DEVOLVER <título> - para devolver um livro alugado
+		 				Exemplo:
+		 				DEVOLVER Meditações
+		 		  """;
+	 }   
 }

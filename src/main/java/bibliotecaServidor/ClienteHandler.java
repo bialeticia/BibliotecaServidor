@@ -14,7 +14,9 @@ class ClienteHandler implements Runnable {
     public void run() {
         try (BufferedReader in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
              PrintWriter out = new PrintWriter(clientSocket.getOutputStream(), true)) {
-
+        	
+        	out.println(Servidor.exibirOpcoes());
+        	
             String request;
             while ((request = in.readLine()) != null) {
                 String[] parts = request.split(" ", 2);
