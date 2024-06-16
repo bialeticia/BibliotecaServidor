@@ -37,4 +37,12 @@ public class Servidor {
 				 .map(livro -> livro.getTitulo() + " por " + livro.getAutor() + " (" + livro.getExemplares() + " exemplares)")
 				 .collect(Collectors.joining("||")); // "||" como delimitador
 	 }
+	 
+	 public static synchronized void salvarLivros() throws IOException {
+		 ObjectMapper mapper = new ObjectMapper();
+		 Biblioteca biblioteca = new Biblioteca(livros);
+		 mapper.writeValue(new File("src/main/resources/livros.json"), biblioteca);
+	 }
+	 
+	 
 }
